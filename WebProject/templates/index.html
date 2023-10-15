@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <!--    <meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .open-button {
+            background-color: #555;
+            width: 60px;
+            height: 60px;
+            color: white;
+            padding: 16px 20px;
+            border: none;
+            cursor: pointer;
+            opacity: 0.9;
+            position: fixed;
+            bottom: 23px;
+            background: #ff7500;
+            right: 28px;
+            border-radius: 30px;
+        }
+
+        .form-popup {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            right: 15px;
+            border: 3px solid #f1f1f1;
+        }
+
+        .form-container {
+            max-width: 300px;
+            padding: 10px;
+            background-color: white;
+        }
+
+        .form-container input[type=text], .form-container input[type=text] {
+            width: 90%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            border: none;
+            background: #f1f1f1;
+        }
+
+        .form-container input[type=text]:focus, .form-container input[type=text]:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+
+        .form-container .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 16px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 10px;
+            opacity: 0.8;
+        }
+
+        .form-container .cancel {
+            background-color: red;
+        }
+
+        .form-container .btn:hover, .open-button:hover {
+            opacity: 1;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Styles.css') }}">
+    <title>Document</title>
+</head>
+<body>
+<button class="open-button" onclick="openForm()" style="z-index:100;position: fixed; bottom: 20px; right: 20px">
+    <img src="{{ url_for('static', filename='images/tele.png') }}" alt=""
+         style="height: 40px;width: 40px;position: relative;bottom: 10px; right: 10px">
+</button>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<table class="flashes">
+    {% for message in messages %}
+    <p>{{ message }}</p>
+    {% endfor %}
+</table>
+{% endif %}
+{% endwith %}
+<div class="form-popup" id="myForm" style="z-index: 1000">
+    <form action="/call" method="post" class="form-container">
+        <h1>Мы вам перезвоним</h1>
+
+        <label for="email"><b>Имя</b></label>
+        <input type="text" placeholder="Ваше имя" name="name" required>
+
+        <label for="psw"><b>Телефон</b></label>
+        <input type="text" placeholder="Ваш телефон" name="phone" required>
+
+        <button type="submit" class="btn">Отправить</button>
+        <button type="button" class="btn cancel" onclick="closeForm()">Закрыть</button>
+    </form>
+</div>
+
+<script>
+    function openForm() {
+        document.getElementById("myForm").style.display = "block";
+    }
+
+    function closeForm() {
+        document.getElementById("myForm").style.display = "none";
+    }
+</script>
+
+<div class="wrap">
+    <header class="header">
+        <div class="header_container _container">
+            <a class="header_logo">
+                <img src="{{ url_for('static', filename='images/Logo') }}" alt="" class="logo_img">
+            </a>
+        </div>
+    </header>
+    <main class="page">
+        <div class="page_main-block _main-block">
+            <div class="main-block_description _description">
+                <div class="description_container">
+                    <h1 class="main-block_title">Бакалавриат ФПМИ</h1>
+                    <div class="main-block_text">Физтех-школа прикладной математики и информатики
+                        призвана собрать в стенах МФТИ все самые современные компетенции в области
+                        математики, информатики и их приложений.
+                        В структуру Школы входят два исключительно сильных факультета:
+                        факультет инноваций и высоких технологий (ФИВТ) и факультет управления и
+                        прикладной математики (ФУПМ). Факультеты гармонично дополняют друг друга
+                        как своими образовательными программами, так и своими научными коллективами.
+                    </div>
+                </div>
+            </div>
+            <img src="{{ url_for('static', filename='images/LOGO.jpeg') }}" alt="" class="main-block_image">
+        </div>
+        <div class="page_features">
+            <div class="description_container">
+                <h2 class="block-features_title">Ценности ФПМИ</h2>
+            </div>
+            <div class="features_inner">
+                <div class="features_content">
+                    <img src="{{ url_for('static', filename='images/icon_student.png') }}" alt="" class="feature_icon">
+                    <div class="features_title">Гранты</div>
+                    <div class="features_subtitle"> Cкидка на обучение (до 100%) для талантливых абитуриентов, которым
+                        «повезло» не пройти по конкурсу на бюджетные места
+                    </div>
+                </div>
+                <div class="features_content">
+                    <img src="{{ url_for('static', filename='images/icon_rub.png') }}" alt="" class="feature_icon">
+                    <div class="features_title"> Стипендии</div>
+                    <div class="features_subtitle"> Не только государственные, но и большое количество частных</div>
+                </div>
+                <div class="features_content">
+                    <img src="{{ url_for('static', filename='images/icon_bed.png') }}" alt="" class="feature_icon">
+                    <div class="features_title"> Качественное поселение</div>
+                    <div class="features_subtitle gh"> Поселяющие ФПМИ очень сильно вкладываются в работу поселения,
+                        стараются учесть как можно больше пожеланий
+                    </div>
+                </div>
+                <div class="features_content low_line_features_content">
+                    <img src="{{ url_for('static', filename='images/icon_help.png') }}" alt="" class="feature_icon">
+                    <div class="features_title"> Помощь в непростых ситуациях</div>
+                    <div class="features_subtitle gh"> Как материальная поддержка, так и прочая</div>
+                </div>
+                <div class="features_content low_line_features_content">
+                    <img src="{{ url_for('static', filename='images/icon_person.png') }}" alt="" class="feature_icon">
+                    <div class="features_title"> Кураторы</div>
+                    <div class="features_subtitle gh"> Внеучебного офиса ФПМИ и студсовета
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="iframe">
+            <iframe src="https://www.youtube.com/embed/59QGCdN5_Co?si=X_0XbCdwXpGB9eRt" title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+        </div>
+        <div class="page_block-inf _block-inf1">
+            <img src="{{ url_for('static', filename='images/image.png') }}" alt="" class="block-inf_image">
+            <div class="block-inf_description _description">
+                <div class="description_container">
+                    <h2 class="block-inf_title">Образовательные программы </h2>
+                    <div class="block-inf_text">В базе всех образовательных программ ФПМИ лежит
+                        сочетание Математики и Информатики. Из этой базы образуется 3 классические
+                        программы ПМИ с различным сочетанием Математики и Информатики и 5
+                        междисциплинарных с интеграцией в основную программу дополнительных Экономики,
+                        Физики, Образовательных технологий или Низкоуровневого программирования.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page_block-inf block-inf2">
+            <div class="block-inf_description _description">
+                <div class="description_container">
+                    <h2 class="block-inf_title">Классические программы ПМИ</h2>
+                    <div class="block-inf_text block_inf_program_text">
+                        <a href="/classic" class="block_inf_program_a">
+                            <div class="block_inf_program">
+                                <div class="block_inf_botton">ПМИ | Прикладная математика и информатика</div>
+                                <div class="block_inf_arrow_wrap">
+                                    <div class="block_inf_arrow">
+                                        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
+                                            <style>svg {
+                                                fill: #aaaaaa
+                                            }</style>
+                                            <path d="M438.6
+                                         278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5
+                                         32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7
+                                         0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="/math" class="block_inf_program_a">
+                            <div class="block_inf_program">
+                                <div class="block_inf_botton">ПМИ | Математика</div>
+                                <div class="block_inf_arrow_wrap">
+                                    <div class="block_inf_arrow">
+                                        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
+                                            <style>svg {
+                                                fill: #aaaaaa
+                                            }</style>
+                                            <path d="M438.6
+                                         278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5
+                                         32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7
+                                         0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </a>
+                        <a href="/inf" class="block_inf_program_a">
+                            <div class="block_inf_program">
+                                <div class="block_inf_botton">ПМИ | Информатика</div>
+                                <div class="block_inf_arrow_wrap">
+                                    <div class="block_inf_arrow">
+                                        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
+                                            <style>svg {
+                                                fill: #aaaaaa
+                                            }</style>
+                                            <path d="M438.6
+                                         278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5
+                                         32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7
+                                         0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <img src="{{ url_for('static', filename='images/img2.jpeg') }}" alt="" class="block-inf_image">
+        </div>
+        <div class="page_block-inf _block-inf3">
+            <img src="{{ url_for('static', filename='images/img1.webp') }}" alt="" class="block-inf_image">
+            <div class="block-inf_description _description">
+                <div class="description_container">
+                    <h2 class="block-inf_title">Междисциплинарные программы</h2>
+                    <div class="block-inf_text block_inf_program_text">
+                        <div class="block-inf_program_major">
+                            <div class="block_inf_program_major_text"> База + Экономика</div>
+                            <a href="/erp" class="block_inf_program_a">
+                                <div class="block_inf_program">
+                                    <div class="block_inf_botton">ПМИ | Экономика и ERP системы</div>
+                                    <div class="block_inf_arrow_wrap">
+                                        <div class="block_inf_arrow">
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
+                                                <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com
+                                                License - https://fontawesome.com/license (Commercial License) Copyright
+                                                 2023 Fonticons, Inc. -->
+                                                <style>svg {
+                                                    fill: #aaaaaa
+                                                }</style>
+                                                <path d="M438.6
+                                         278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5
+                                         32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7
+                                         0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="/eco" class="block_inf_program_a">
+                                <div class="block_inf_program">
+                                    <div class="block_inf_botton">ПМИ | Анализ данных в экономике</div>
+                                    <div class="block_inf_arrow_wrap">
+                                        <div class="block_inf_arrow">
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
+                                                <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com
+                                                License - https://fontawesome.com/license (Commercial License) Copyright
+                                                 2023 Fonticons, Inc. -->
+                                                <style>svg {
+                                                    fill: #aaaaaa
+                                                }</style>
+                                                <path d="M438.6
+                                         278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5
+                                         32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7
+                                         0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="block-inf_program_major">
+                            <div class="block_inf_program_major_text"> База + Физика</div>
+                            <a href="/phy" class="block_inf_program_a">
+                                <div class="block_inf_program">
+                                    <div class="block_inf_botton">ПМФ, ИВТф, САУ | Математическое моделирование и
+                                        компьютерные технологии
+                                    </div>
+                                    <div class="block_inf_arrow_wrap">
+                                        <div class="block_inf_arrow">
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
+                                                <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com
+                                                License - https://fontawesome.com/license (Commercial License) Copyright
+                                                 2023 Fonticons, Inc. -->
+                                                <style>svg {
+                                                    fill: #aaaaaa
+                                                }</style>
+                                                <path d="M438.6
+                                         278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5
+                                         32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7
+                                         0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="block-inf_program_major">
+                            <div class="block_inf_program_major_text">База + Низкоуровневое программирование</div>
+                            <a href="/ivt" class="block_inf_program_a">
+                                <div class="block_inf_program">
+                                    <div class="block_inf_botton">ИВТсп | Системное программирование и прикладная
+                                        математика
+                                    </div>
+                                    <div class="block_inf_arrow_wrap">
+                                        <div class="block_inf_arrow">
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
+                                                <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com
+                                                License - https://fontawesome.com/license (Commercial License) Copyright
+                                                 2023 Fonticons, Inc. -->
+                                                <style>svg {
+                                                    fill: #aaaaaa
+                                                }</style>
+                                                <path d="M438.6
+                                         278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5
+                                         32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7
+                                         0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="block-inf_program_major">
+                            <div class="block_inf_program_major_text"> База + Эдтех</div>
+                            <a href="/ed" class="block_inf_program_a">
+                                <div class="block_inf_program">
+                                    <div class="block_inf_botton">ПМИ | EdTech. Искусственный интеллект в математическом
+                                        и
+                                        ИТ-образовании
+                                    </div>
+                                    <div class="block_inf_arrow_wrap">
+                                        <div class="block_inf_arrow">
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
+                                                <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com
+                                                License - https://fontawesome.com/license (Commercial License) Copyright
+                                                 2023 Fonticons, Inc. -->
+                                                <style>svg {
+                                                    fill: #aaaaaa
+                                                }</style>
+                                                <path d="M438.6
+                                         278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5
+                                         32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7
+                                         0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page_mask">
+            <div class="mask_inner">
+                <div class="circle-outer1"></div>
+                <div class="circle-inner1"></div>
+                <div class="circle-outer2"></div>
+                <div class="circle-inner2"></div>
+                <div class="mask-inf">
+                    <div class="mask_title">О базовых кафедрах на ФПМИ
+                    </div>
+                    <div class="mask_buttons">
+                        <div class="block-inf_text mask-inf_text">Начиная со второго курса студенты посещают презентации
+                            базовых кафедр, чтобы выбрать ту, на которой они начнут изучать специализированные
+                            предметы. Обучение на базовой кафедре обеспечивает студентам полное погружение в
+                            атмосферу науки или индустрии и определяет специализацию выпускника.
+                        </div>
+
+                        <div class="block-inf_text mask-inf_text">Обучение на базовой кафедре проводится не в МФТИ, а
+                            непосредственно в офисе
+                            компании-партнера или в научном институте РАН. Студентов обучают действующие
+                            сотрудники-практики или научные сотрудники Российской академии наук.
+                        </div>
+                        <div class="block-inf_text mask-inf_text">На ФПМИ есть возможность выбора из более чем 20 кафедр
+                            — 10 индустриальных кафедр
+                            от компаний и 11 академических.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page_partners">
+            <div class="page_partners_inner ">
+                <h1 class="main-block_title page_partners_title">Партнёры ФПМИ</h1>
+                <div class="main-block_text page_partners_inf">
+                    <div class="partner_block_inner">
+                        <div class="partner_block_inf" id="Yandex">
+                            <img src="{{ url_for('static', filename='images/Yandex.png') }}" class="partner_img">
+                        </div>
+                        <div class="partner_block_inf" id="C1">
+                            <img src="{{ url_for('static', filename='images/1C.png') }}" class="partner_img">
+                        </div>
+                        <div class="partner_block_inf" id="VTB">
+                            <img src="{{ url_for('static', filename='images/VTB.png') }}" class="partner_img">
+                        </div>
+                        <div class="partner_block_inf" id="SBER">
+                            <img src="{{ url_for('static', filename='images/Sber.png') }}" class="partner_img">
+                        </div>
+                        <div class="partner_block_inf" id="TINK">
+                            <img src="{{ url_for('static', filename='images/Tink.svg') }}" class="partner_img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <form class="decor" style="margin-top: -150px;margin-bottom: 50px">
+        <div class="form-left-decoration"></div>
+        <div class="form-right-decoration"></div>
+        <div class="circle"></div>
+        <div class="form-inner">
+            <h3 style="color: white">Напишите нам, если у вас остались вопросы</h3>
+            <input type="text" placeholder="Username">
+            <input type="email" placeholder="Email">
+            <textarea placeholder="Сообщение..." rows="3"></textarea>
+            <input type="submit" value="Отправить">
+        </div>
+    </form>
+
+    <!-- Site footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="row_inner">
+                    <h6>Полезные ссылки</h6>
+                    <ul class="footer-links">
+                        <li><a href="https://pk.mipt.ru/">Сайт Приёмной комиссии МФТИ</a></li>
+                        <li><a href="https://clck.ru/33vGFj">Учебные планы 2023 года набора ФПМИ</a></li>
+                        <li><a href="https://clck.ru/32Xihz">Правила приема 2023</a></li>
+                        <li><a href="https://t.me/fpmi_abitu_news"><span lang="es">Telegram</span>-чат Абитуриенты ФПМИ</a>
+                        </li>
+                        <li><a href="https://vk.com/abitu">Группа Абитуриенты ФПМИ Вконтакте</a></li>
+                        <li><a href="https://vk.com/miptfpmi">Официальная группа ФПМИ Вконтакте</a></li>
+                    </ul>
+                </div>
+
+                <div class="row_inner">
+                    <h6>Контактная информация</h6>
+                    <ul class="footer-links">
+                        <li>141701, Московская облаcть, г. Долгопрудный, Институтский пер., 9.</li>
+                        <li>+7 (495) 408-45-54</li>
+                        <li><span lang="es" class="spans">info@mipt.ru</span></li>
+                        <li><span lang="es" class="spans">pk.bachelor@mipt.ru </span></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </footer>
+</div>
+
+
+</body>
+</html>
+

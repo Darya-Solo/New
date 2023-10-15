@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tickets</title>
+</head>
+<body>
+<h1>Активные тикеты!</h1>
+<ul>
+{% with tickets = Ticket.select() %}
+{% for ticket in tickets %}
+<li>{{ticket.name}} {{ticket.phone}}</li>
+  {% endfor %}
+  {% endwith %}
+</ul>
+</body>
+</html>

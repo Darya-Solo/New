@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/classic.css') }}">
+    <title>Document</title>
+</head>
+<body>
+<div class="wrap">
+
+    <header class="header">
+        <div class="header_container _container">
+            <a class="header_logo">
+                <img src="{{ url_for('static', filename='images/Logo') }}" alt="" class="logo_img">
+            </a>
+        </div>
+    </header>
+
+    <main class="page">
+        <div class="page_main-block _main-block">
+            <div class="main-block_description _description">
+                <div class="description_container">
+                    <h3 class="main-block_title" style="font-size: 30px">ПМФ, ИВТф, САУ | Математическое моделирование и
+                        компьютерные технологии</h3>
+                    <div class="main-block_text">Данная образовательная программа построена на стыке
+                        нескольких областей знаний: математики,
+                        компьютерных наук и физики. Это позволит вам развить модельное мышление в самых
+                        разных сферах от естественных наук до финансов, не ограничиваясь теоретическими
+                        моделями в математике. Именно физика играет ключевую роль в процессе построения
+                        модельного мышления.
+                        По итогам обучения вы станете специалистом в моделировании физических процессов,
+                        бизнес-аналитике, системной аналитике, анализе данных, научном программировании,
+                        оптимизации.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="iframe">
+            <iframe src="https://www.youtube.com/embed/7qBz8e3hvOc?si=-pt0pQzOKYfkwkrO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+
+        <div class="page_block-inf block-inf2">
+
+            <div class="block-inf_description _description">
+                <div class="description_container">
+                    <h2 class="block-inf_title">Преимущества программы</h2>
+                    <div class="block-inf_text block_inf_program_text">
+                        <div class="block_inf_program">
+                            <div class="block_inf_arrow_wrap">
+                                <div class="block_inf_arrow">
+                                    <img src="{{ url_for('static', filename='images/icon_arr.png') }}" class="arrow_icon_img">
+                                </div>
+                            </div>
+                            <div class="block_inf_botton">Уникальная для МФТИ линейка курсов по квантовой физике</div>
+                        </div>
+
+                        <div class="block_inf_program">
+                            <div class="block_inf_arrow_wrap">
+                                <div class="block_inf_arrow">
+                                    <img src="{{ url_for('static', filename='images/icon_arr.png') }}" class="arrow_icon_img">
+                                </div>
+                            </div>
+                            <div class="block_inf_botton">Формирование модельного мышления</div>
+                        </div>
+
+                        <div class="block_inf_program">
+                            <div class="block_inf_arrow_wrap">
+                                <div class="block_inf_arrow">
+                                    <img src="{{ url_for('static', filename='images/icon_arr.png') }}" class="arrow_icon_img">
+                                </div>
+                            </div>
+                            <div class="block_inf_botton">Принципы междисциплинарного обучения</div>
+                        </div>
+
+                        <div class="block_inf_program">
+                            <div class="block_inf_arrow_wrap">
+                                <div class="block_inf_arrow">
+                                    <img src="{{ url_for('static', filename='images/icon_arr.png') }}" class="arrow_icon_img">
+                                </div>
+                            </div>
+                            <div class="block_inf_botton">Математические основы управления, задачи по оптимизации</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <img src="{{ url_for('static', filename='images/main_pic1.jpg') }}" alt="" class="block-inf_image">
+        </div>
+        <div class="page_block-inf block-inf3">
+            <img src="{{ url_for('static', filename='images/main_pic2.jpg') }}" alt="" class="block-inf_image">
+            <div class="block-inf_description _description">
+                <div class="description_container">
+                    <h2 class="block-inf_title">На старших курсах 4 трека по выбору</h2>
+                    <div class="block-inf_text block_inf_program_text">
+                        <div class="block_inf_program">
+                            <div class="block_inf_arrow_wrap">
+                                <div class="block_inf_arrow">
+                                    <img src="{{ url_for('static', filename='images/icon_arr.png') }}" class="arrow_icon_img">
+                                </div>
+                            </div>
+                            <div class="block_inf_botton">"<span lang="es"> Science</span>"(математическая физика)</div>
+                        </div>
+
+                        <div class="block_inf_program">
+                            <div class="block_inf_arrow_wrap">
+                                <div class="block_inf_arrow">
+                                    <img src="{{ url_for('static', filename='images/icon_arr.png') }}" class="arrow_icon_img">
+                                </div>
+                            </div>
+                            <div class="block_inf_botton">"<span lang="es">Analytics</span>"(компьютерные технологии)</div>
+                        </div>
+
+                        <div class="block_inf_program" style="margin-top: 20px">
+                            <div class="block_inf_arrow_wrap">
+                                <div class="block_inf_arrow">
+                                    <img src="{{ url_for('static', filename='images/icon_arr.png') }}" class="arrow_icon_img">
+                                </div>
+                            </div>
+                            <div class="block_inf_botton">"<span lang="es">Government</span>"(управление организациями)</div>
+                        </div>
+
+                        <div class="block_inf_program">
+                            <div class="block_inf_arrow_wrap">
+                                <div class="block_inf_arrow">
+                                    <img src="{{ url_for('static', filename='images/icon_arr.png') }}" class="arrow_icon_img">
+                                </div>
+                            </div>
+                            <div class="block_inf_botton">"<span lang="es">Entrepreneurship</span>"(технологическое предпринимательство)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page_mask">
+            <div class="mask_inner">
+                <div class="circle-outer1"></div>
+                <div class="circle-inner1"></div>
+                <div class="circle-outer2"></div>
+                <div class="circle-inner2"></div>
+                <div class="mask-inf">
+                    <div class="mask_title">Карьерные перспективы
+                    </div>
+                    <div class="items">
+                        <div class="mask_element">
+                            <div>Аналитика, стратегичсекий консалтинг</div>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/mask_icon.png') }}" class="mask_icon">
+                        <div class="mask_element">
+                            <div><span lang="es">CDTO, CFO, CEO, startup founder,</span> ученый</div>
+                        </div>
+                        <img src="{{ url_for('static', filename='images/mask_icon.png') }}" class="mask_icon">
+                        <div class="mask_element">
+                            <div>Илон Маск</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page_partners">
+            <div class="page_partners_inner ">
+                <h1 class="main-block_title page_partners_title">Партнёры ФПМИ</h1>
+                <div class="main-block_text page_partners_inf">
+                    <div class="partner_block_inner">
+                        <div class="partner_block_inf" id="Yandex">
+                            <img src="{{ url_for('static', filename='images/Yandex.png') }}" class="partner_img">
+                        </div>
+                        <div class="partner_block_inf" id="C1">
+                            <img src="{{ url_for('static', filename='images/1C.png') }}" class="partner_img">
+                        </div>
+
+                        <div class="partner_block_inf" id="VTB">
+                            <img src="{{ url_for('static', filename='images/VTB.png') }}" class="partner_img">
+                        </div>
+                        <div class="partner_block_inf" id="SBER">
+                            <img src="{{ url_for('static', filename='images/Sber.png') }}" class="partner_img">
+                        </div>
+                        <div class="partner_block_inf" id="TINK">
+                            <img src="{{ url_for('static', filename='images/Tink.svg') }}" class="partner_img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Site footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="row_inner">
+                    <h6>Полезные ссылки</h6>
+                    <ul class="footer-links">
+                        <li><a href="https://pk.mipt.ru/">Сайт Приёмной комиссии МФТИ</a></li>
+                        <li><a href="https://clck.ru/33vGFj">Учебные планы 2023 года набора ФПМИ</a></li>
+                        <li><a href="https://clck.ru/32Xihz">Правила приема 2023</a></li>
+                        <li><a href="https://t.me/fpmi_abitu_news"><span lang="es">Telegram</span>-чат Абитуриенты ФПМИ</a></li>
+                        <li><a href="https://vk.com/abitu">Группа Абитуриенты ФПМИ Вконтакте</a></li>
+                        <li><a href="https://vk.com/miptfpmi">Официальная группа ФПМИ Вконтакте</a></li>
+                    </ul>
+                </div>
+
+                <div class="row_inner">
+                    <h6>Контактная информация</h6>
+                    <ul class="footer-links">
+                        <li>141701, Московская облаcть, г. Долгопрудный, Институтский пер., 9.</li>
+                        <li>+7 (495) 408-45-54</li>
+                        <li><span lang="es" class="spans">info@mipt.ru</span></li>
+                        <li><span lang="es" class="spans">pk.bachelor@mipt.ru </span></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </footer>
+</div>
+
+
+</body>
+</html>
